@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PM Copilot Chat</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="top-tabs">
+        <button id="tab-chat" class="tab-btn active" type="button">Chat</button>
+        <button id="tab-skills" class="tab-btn" type="button">PM Skills</button>
+      </header>
+
+      <section id="chat-view">
+        <section id="landing" class="landing">
+          <h1>What should we work on?</h1>
+          <p>Start with one prompt. Add skills, files, or connectors from +.</p>
+        </section>
+
+        <section id="chat" class="chat hidden" aria-live="polite">
+          <div class="chat-topbar">
+            <span id="active-skill-pill" class="skill-pill">Skill: General PM Copilot</span>
+          </div>
+          <div id="messages" class="messages"></div>
+        </section>
+
+        <form id="composer" class="composer" autocomplete="off">
+          <button id="plus-btn" type="button" class="plus-btn" aria-label="Attachments, connectors, and skills">+</button>
+          <div id="plus-menu" class="plus-menu hidden">
+            <p class="menu-label">Skills</p>
+            <div id="skills-list" class="skill-list"></div>
+
+            <p class="menu-label">Attachments</p>
+            <button type="button" id="upload-trigger">Attach file</button>
+
+            <p class="menu-label">Connectors</p>
+            <button type="button" id="connect-jira">Connect Jira</button>
+            <button type="button" id="connect-notion">Connect Notion</button>
+          </div>
+          <input id="file-input" type="file" class="hidden" />
+          <textarea id="prompt" rows="1" placeholder="Type your PM request..." required></textarea>
+          <button id="send-btn" type="submit" class="send-btn">Send</button>
+        </form>
+      </section>
+
+      <section id="skills-view" class="skills-view hidden">
+        <div class="skills-header">
+          <h2>PM Skills Library</h2>
+          <a id="download-skill-pack" class="download-btn" href="/api/skills/download" download>Download PM skill pack</a>
+        </div>
+        <div id="skills-cards" class="skills-cards"></div>
+      </section>
+    </main>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
